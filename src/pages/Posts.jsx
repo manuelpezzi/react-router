@@ -12,9 +12,9 @@ function Posts() {
     return (
         <div className="container mt-4">
             <h2>Lista dei Post</h2>
-            <ul className="list-group">
+            <ul className="list-group ">
                 {posts.map(post => (
-                    <li key={post.id} className="list-group-item">
+                    <li key={post.id} className="list-group-item  bg-dark text-light">
                         <h5>{post.title}</h5>
                         <p>{post.content.substring(0, 50)}...</p>
                         <NavLink
