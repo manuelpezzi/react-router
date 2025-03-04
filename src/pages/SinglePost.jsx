@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 function SinglePost() {
     const { id } = useParams();
@@ -19,7 +19,7 @@ function SinglePost() {
             .catch(error => console.error("errore nel caricamento dei post:", error));
     }, [id]);
 
-
+    const navigate = useNavigate();
     return (
         <div className="container mt-4">
             <h1>Dettaglio del Post: {id}</h1>
@@ -32,7 +32,14 @@ function SinglePost() {
                     <li key={index}>{tag}</li>
                 ))}
             </ul>
+            <div>
+                <h1>ID prodotto:{id}</h1>
+                <button className="btn btn-primary" onClick={() => navigate(-1)}>
+                    torna al precedente
+                </button>
+            </div>
         </div>
+
     );
 };
 
